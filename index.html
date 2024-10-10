@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Ordering Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 56px; /* Offset for fixed navbar */
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .navbar a {
+            color: white;
+        }
+
+        .category-section {
+            margin-top: 20px;
+        }
+
+        .pizza-card {
+            margin-bottom: 30px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            transition: transform 0.2s; /* Animation on hover */
+        }
+
+        .pizza-card:hover {
+            transform: scale(1.05); /* Scale up on hover */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow effect */
+        }
+
+        .pizza-image {
+            height: 200px; /* Fixed height for pizza images */
+            object-fit: cover; /* Maintain aspect ratio */
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .btn-customize {
+            background-color: #28a745; /* Green for customize button */
+            color: white;
+            border: none;
+        }
+
+        .btn-customize:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+
+        .btn-add-to-cart {
+            background-color: #007bff; /* Blue for add to cart button */
+            color: white;
+            border: none;
+        }
+
+        .btn-add-to-cart:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        .pizza-rating {
+            margin-top: 10px;
+        }
+
+        footer {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 576px) {
+            .pizza-card {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <a class="navbar-brand" href="#">Pizza Paradise</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item"><a class="nav-link" href="#">Pizza</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Starters</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Salads</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">More</a></li>
+                <li class="nav-item"><a class="nav-link active" href="#">Deals</a></li>
+            </ul>
+            <span class="navbar-text mr-3">Call us: 123-456-7890</span>
+            <button class="btn btn-outline-light my-2 my-sm-0">Start Your Order</button>
+        </div>
+    </nav>
+
+    <!-- Category Section -->
+    <div class="container category-section">
+        <h2 class="text-center">Select Your Pizza Category</h2>
+        <ul class="nav nav-pills justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">All</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Beef</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Chicken</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Vegetarian</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Specialty</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Extreme Pizza</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Sea Food</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Pizza Listings -->
+    <div class="container mt-4">
+        <h2 class="text-center">Our Delicious Pizzas</h2>
+        <div class="row">
+            <!-- Pizza Card Example -->
+            <div class="col-lg-4 col-md-6 pizza-card">
+                <div class="card">
+                    <img src="task_2_images/4.png" class="card-img-top pizza-image" alt="Pizza">
+                    <div class="card-body">
+                        <h5 class="card-title">Super Supreme</h5>
+                        <p class="card-text">Topped with fresh vegetables, premium cheese, and spicy sausage.</p>
+                        <p class="card-text"><strong>Price: EGP 75.88</strong></p>
+                        <form>
+                            <div class="form-group">
+                                <label for="size">Size:</label>
+                                <select class="form-control" id="size">
+                                    <option>Small</option>
+                                    <option>Medium</option>
+                                    <option>Large</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="crust">Crust:</label>
+                                <select class="form-control" id="crust">
+                                    <option>Pan</option>
+                                    <option>Thin</option>
+                                    <option>Stuffed</option>
+                                </select>
+                            </div>
+                            <div class="pizza-rating">
+                                <h5>Rate this Pizza:</h5>
+                                <select class="form-control" aria-label="Rate this pizza">
+                                    <option value="1">1 Star</option>
+                                    <option value="2">2 Stars</option>
+                                    <option value="3">3 Stars</option>
+                                    <option value="4">4 Stars</option>
+                                    <option value="5">5 Stars</option>
+                                </select>
+                                <button type="button" class="btn btn-primary mt-2" aria-label="Submit rating">Submit</button>
+                            </div>
+                            <button type="button" class="btn btn-customize">Customize</button>
+                            <button type="button" class="btn btn-add-to-cart">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Repeat Pizza Cards for more pizzas -->
+            <div class="col-lg-4 col-md-6 pizza-card">
+                <div class="card">
+                    <img src="task_2_images/5.png" class="card-img-top pizza-image" alt="Pizza">
+                    <div class="card-body">
+                        <h5 class="card-title">Classic Pepperoni</h5>
+                        <p class="card-text">Loaded with spicy pepperoni and mozzarella cheese.</p>
+                        <p class="card-text"><strong>Price: EGP 65.50</strong></p>
+                        <form>
+                            <div class="form-group">
+                                <label for="size">Size:</label>
+                                <select class="form-control" id="size">
+                                    <option>Small</option>
+                                    <option>Medium</option>
+                                    <option>Large</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="crust">Crust:</label>
+                                <select class="form-control" id="crust">
+                                    <option>Pan</option>
+                                    <option>Thin</option>
+                                    <option>Stuffed</option>
+                                </select>
+                            </div>
+                            <div class="pizza-rating">
+                                <h5>Rate this Pizza:</h5>
+                                <select class="form-control" aria-label="Rate this pizza">
+                                    <option value="1">1 Star</option>
+                                    <option value="2">2 Stars</option>
+                                    <option value="3">3 Stars</option>
+                                    <option value="4">4 Stars</option>
+                                    <option value="5">5 Stars</option>
+                                </select>
+                                <button type="button" class="btn btn-primary mt-2" aria-label="Submit rating">Submit</button>
+                            </div>
+                            <button type="button" class="btn btn-customize">Customize</button>
+                            <button type="button" class="btn btn-add-to-cart">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 pizza-card">
+                <div class="card">
+                    <img src="task_2_images/6.png" class="card-img-top pizza-image" alt="Pizza">
+                    <div class="card-body">
+                        <h5 class="card-title">BBQ Chicken</h5>
+                        <p class="card-text">Savory BBQ chicken with onions and cilantro.</p>
+                        <p class="card-text"><strong>Price: EGP 78.90</strong></p>
+                        <form>
+                            <div class="form-group">
+                                <label for="size">Size:</label>
+                                <select class="form-control" id="size">
+                                    <option>Small</option>
+                                    <option>Medium</option>
+                                    <option>Large</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="crust">Crust:</label>
+                                <select class="form-control" id="crust">
+                                    <option>Pan</option>
+                                    <option>Thin</option>
+                                    <option>Stuffed</option>
+                                </select>
+                            </div>
+                            <div class="pizza-rating">
+                                <h5>Rate this Pizza:</h5>
+                                <select class="form-control" aria-label="Rate this pizza">
+                                    <option value="1">1 Star</option>
+                                    <option value="2">2 Stars</option>
+                                    <option value="3">3 Stars</option>
+                                    <option value="4">4 Stars</option>
+                                    <option value="5">5 Stars</option>
+                                </select>
+                                <button type="button" class="btn btn-primary mt-2" aria-label="Submit rating">Submit</button>
+                            </div>
+                            <button type="button" class="btn btn-customize">Customize</button>
+                            <button type="button" class="btn btn-add-to-cart">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center mt-4">
+        <p>&copy; 2024 Pizza Paradise. All Rights Reserved.</p>
+        <p><strong>Subscribe to our newsletter for special offers!</strong></p>
+        <form class="form-inline justify-content-center">
+            <input class="form-control mr-2" type="email" placeholder="Enter your email" aria-label="Email">
+            <button class="btn btn-outline-light" type="submit">Subscribe</button>
+        </form>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
